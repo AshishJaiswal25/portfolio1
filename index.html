@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashish | Data Science Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Ashish - Career Preparation E-Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -12,1034 +11,551 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #0f172a;
-            --secondary: #1e40af;
-            --accent: #3b82f6;
-            --light: #f8fafc;
-            --text: #334155;
-            --text-light: #64748b;
-            --border: #e2e8f0;
-        }
-
         body {
-            font-family: 'IBM Plex Sans', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: var(--text);
-            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
-            overflow-x: hidden;
+            color: #333;
+            background: #f5f5f5;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-            z-index: 1000;
-            animation: slideDown 0.6s ease-out;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
+        /* Header with Banner */
+        header {
+            position: relative;
+            height: 300px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><rect fill="%23000080" width="1200" height="300"/><text x="50" y="150" font-family="Georgia" font-size="120" font-weight="bold" fill="%23fff">NORTHEASTERN</text></svg>');
+            background-size: cover;
+            background-position: center;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
         }
 
-        nav .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--primary);
-            letter-spacing: -0.5px;
+        .header-content {
+            text-align: right;
+            color: white;
+            position: absolute;
+            top: 20px;
+            right: 40px;
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2.5rem;
+        .header-content h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: white;
         }
 
-        nav a {
+        .about-me-link {
+            color: #e63946;
             text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: var(--secondary);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8rem 2rem 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            font-weight: 900;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero .tagline {
-            font-size: 1.5rem;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .hero .subtitle {
-            font-size: 1.2rem;
-            color: var(--text);
-            margin-bottom: 3rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            animation: fadeInUp 0.8s ease-out 0.8s both;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            font-size: 1.1rem;
         }
 
-        .btn-primary {
-            background: var(--secondary);
-            color: white;
-            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+        .about-me-link:hover {
+            text-decoration: underline;
         }
 
-        .btn-primary:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
-        }
-
-        .btn-secondary {
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: -50px auto 40px;
             background: white;
-            color: var(--secondary);
-            border: 2px solid var(--secondary);
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
         }
 
-        .btn-secondary:hover {
-            background: var(--secondary);
-            color: white;
-            transform: translateY(-2px);
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .profile-image {
+            flex-shrink: 0;
+        }
+
+        .profile-image img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .profile-image-placeholder {
+            width: 200px;
+            height: 200px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: #666;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-text h2 {
+            color: #000080;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .profile-text p {
+            margin-bottom: 12px;
+            line-height: 1.7;
         }
 
         /* Section Styles */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .section {
+            margin-bottom: 50px;
         }
 
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--primary);
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-            line-height: 1.8;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .about-content h3 {
-            font-family: 'Playfair Display', serif;
+        .section h2 {
             font-size: 1.8rem;
-            color: var(--secondary);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #000080;
         }
 
-        .about-content p {
-            margin-bottom: 1.5rem;
-            color: var(--text);
+        .section h3 {
+            font-size: 1.4rem;
+            color: #000080;
+            margin-top: 25px;
+            margin-bottom: 15px;
         }
 
-        .about-content ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .about-content ul li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .about-content ul li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Portfolio Grid */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .portfolio-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-            cursor: pointer;
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
-        }
-
-        .portfolio-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .portfolio-card .card-label {
-            display: inline-block;
-            padding: 0.3rem 1rem;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            color: white;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .portfolio-card p {
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            animation: fadeIn 0.3s ease-out;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background: white;
-            max-width: 900px;
-            margin: 3rem auto;
-            padding: 3rem;
-            border-radius: 16px;
-            position: relative;
-            animation: slideUp 0.4s ease-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--text-light);
-            transition: color 0.3s ease;
-        }
-
-        .modal-close:hover {
-            color: var(--primary);
-        }
-
-        .modal h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
-        }
-
-        .modal h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            color: var(--secondary);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .modal p, .modal li {
-            line-height: 1.8;
-            color: var(--text);
-            margin-bottom: 1rem;
-        }
-
-        .modal ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .modal ul li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .modal ul li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .skill-category h3 {
-            color: var(--secondary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .skill-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: var(--light);
-            color: var(--text);
-            border-radius: 20px;
-            margin: 0.3rem;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Contact Section */
-        .contact-content {
-            text-align: center;
-            background: white;
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: var(--light);
+        /* Content Box */
+        .content-box {
+            background: #f8f9fa;
+            padding: 30px;
             border-radius: 8px;
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: all 0.3s ease;
+            margin: 20px 0;
+            border-left: 4px solid #000080;
         }
 
-        .contact-link:hover {
-            background: var(--secondary);
+        .content-box p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .content-box li {
+            margin-bottom: 8px;
+        }
+
+        /* LinkedIn Embed */
+        .linkedin-embed {
+            margin: 20px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #0077b5;
+        }
+
+        .linkedin-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #0077b5;
             color: white;
-            transform: translateY(-3px);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .linkedin-button:hover {
+            background: #006399;
+        }
+
+        /* Resume Section */
+        .resume-embed {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .resume-preview {
+            background: #f8f9fa;
+            padding: 40px;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .resume-icon {
+            font-size: 80px;
+            color: #000080;
+            margin-bottom: 20px;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #e63946;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .download-button:hover {
+            background: #d62839;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Job Search Strategy */
+        .strategy-content {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .strategy-content h3 {
+            color: #000080;
+            font-size: 1.4rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .strategy-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .strategy-content li {
+            margin-bottom: 8px;
+        }
+
+        .strategy-content p {
+            margin-bottom: 15px;
+        }
+
+        /* Key Points Box */
+        .key-points {
+            background: #fff;
+            border: 2px solid #000080;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .key-points h4 {
+            color: #000080;
+            margin-bottom: 10px;
+        }
+
+        .key-points ul {
+            margin-left: 20px;
         }
 
         /* Footer */
         footer {
-            background: var(--primary);
+            background: #333;
             color: white;
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+            padding: 30px;
+            margin-top: 60px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.2rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            .cta-buttons {
+            .profile-section {
                 flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
 
-            .portfolio-grid {
-                grid-template-columns: 1fr;
+            .container {
+                margin: 20px;
+                padding: 20px;
             }
 
-            .section-title {
-                font-size: 2rem;
+            header {
+                height: 200px;
             }
-
-            .modal-content {
-                margin: 1rem;
-                padding: 2rem;
-            }
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Download Button Style */
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            background: var(--accent);
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .download-btn:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">ASHISH</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <!-- Header Banner -->
+    <header>
+        <div class="header-content">
+            <h1>Ashish</h1>
+            <a href="#about" class="about-me-link">About Me</a>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>ASHISH</h1>
-            <p class="tagline">Data Scientist & Machine Learning Engineer</p>
-            <p class="subtitle">MS Data Science @ Northeastern University | Building AI systems that solve real-world problems</p>
-            <div class="cta-buttons">
-                <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- About Me Section -->
+        <section id="about" class="section profile-section">
+            <div class="profile-image">
+                <img src="ashish.jpeg" alt="Ashish Jaiswal - Professional Photo">
             </div>
-        </div>
-    </section>
+            <div class="profile-text">
+                <h2>About me:</h2>
+                <p>I'm a Master of Science in Data Science student at Northeastern University's Khoury College of Computer Sciences, graduating in September 2027. With over 2 years of industry experience as a Junior Data Scientist at Airox Technologies and previous internships at BCG and KPMG, I bring a strong foundation in machine learning, computer vision, and cloud-based AI systems.</p>
+                <p>My professional journey has taken me from analyzing financial data at KPMG, to building recommendation systems at BCG, to deploying computer vision models in production at Airox Technologies. I'm passionate about building AI systems that solve real-world problems and am currently developing TailorTrack, an AI-powered career acceleration platform.</p>
+            </div>
+        </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <p>I'm a data scientist and machine learning engineer passionate about building AI systems that solve real-world problems. Currently pursuing my MS in Data Science at Northeastern University's Khoury College of Computer Sciences, I bring over 2 years of industry experience developing production-grade machine learning solutions across consulting, technology, and healthcare domains.</p>
+        <!-- Tell Me About Yourself -->
+        <section class="section">
+            <h2>Tell Me About Yourself:</h2>
+            <div class="content-box">
+                <p>I'm a Data Science graduate student at Northeastern University with over 2 years of professional experience building production-grade machine learning systems. My journey in data science began during my undergraduate studies, but it truly took shape when I joined Airox Technologies as a Junior Data Scientist, where I developed end-to-end ML pipelines and computer vision applications that processed over 100,000 data points daily.</p>
 
-            <p>My professional journey has taken me from analyzing financial data at KPMG, to building recommendation systems at BCG, to deploying computer vision models in production at Airox Technologies. Each experience has strengthened my belief that the most impactful AI systems are those that seamlessly integrate technical sophistication with practical usability.</p>
+                <p>What excites me most about data science is the intersection of technical innovation and real-world impact. At Airox, I didn't just build models—I deployed them in production environments using AWS and implemented monitoring systems to ensure they continued delivering value. One of my proudest achievements was developing a multimodal AI system that integrated vision and language models, which significantly improved our automated reporting capabilities.</p>
 
-            <h3>What Drives Me</h3>
-            <p>I'm fascinated by the challenge of taking complex machine learning algorithms and making them work reliably at scale. Whether it's optimizing a neural network to run in real-time or building data pipelines that process millions of records daily, I thrive on turning theoretical concepts into tangible results. My work spans the full ML lifecycle—from exploratory data analysis and feature engineering to model deployment and monitoring.</p>
+                <p>Before Airox, I gained valuable experience through internships at BCG and KPMG, where I learned to translate complex technical solutions into business strategies. At BCG, I built recommendation systems that increased client engagement by 30%, while at KPMG, I developed automated data quality frameworks that reduced manual review time by half.</p>
 
-            <p>Beyond the technical challenges, I'm motivated by the potential of AI to make systems more efficient and accessible. That's why I'm currently developing TailorTrack, an AI-powered platform that helps job seekers navigate the often frustrating process of career development. This project combines my technical skills in natural language processing and full-stack development with my desire to build tools that genuinely help people.</p>
+                <p>Currently, I'm channeling my passion for practical AI applications into TailorTrack, a platform I'm developing that uses large language models to help job seekers optimize their career search. This project combines everything I love—natural language processing, full-stack development, and solving real problems that people face.</p>
 
-            <h3>My Approach</h3>
-            <p>I believe the best data scientists are equal parts engineer, scientist, and communicator. The engineering side ensures models run efficiently in production. The scientific approach keeps me grounded in rigorous experimentation and validation. And strong communication transforms complex technical work into insights that drive business decisions.</p>
-
-            <p>Throughout my career, I've learned that:</p>
-            <ul>
-                <li>Simplicity beats complexity: The best solution is often the simplest one that works reliably</li>
-                <li>Context matters: Understanding the business problem is as important as building the model</li>
-                <li>Iteration is key: Continuous improvement and monitoring make the difference between a demo and a production system</li>
-                <li>Collaboration wins: The best ML systems emerge from cross-functional teams working together</li>
-            </ul>
-
-            <h3>Technical Expertise</h3>
-            <p>My toolkit includes Python, PyTorch, TensorFlow, and the full ecosystem of ML libraries. I'm experienced with cloud platforms (AWS, specifically SageMaker and Databricks), and comfortable working with both traditional ML algorithms and cutting-edge deep learning architectures. I specialize in computer vision, natural language processing, and building end-to-end ML pipelines.</p>
-
-            <p>But tools are just tools—what matters is knowing when and how to use them. I pride myself on choosing the right approach for each problem, whether that's a simple logistic regression or a complex multimodal transformer architecture.</p>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <h2 class="section-title">Portfolio</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-card" onclick="openModal('module4')">
-                <span class="card-label">Module 4</span>
-                <h3>Professional Introduction</h3>
-                <p>A comprehensive introduction highlighting my experience, expertise, and career objectives in data science and machine learning.</p>
+                <p>I'm particularly drawn to roles where I can work on challenging machine learning problems at scale, collaborate with cross-functional teams, and see my work make a tangible difference.</p>
             </div>
 
-            <div class="portfolio-card" onclick="openModal('module7')">
-                <span class="card-label">Module 7</span>
-                <h3>Professional Resume</h3>
-                <p>Detailed resume showcasing 2+ years of industry experience at Airox Technologies, BCG, and KPMG with key projects and achievements.</p>
+            <div class="key-points">
+                <h4>Key Talking Points:</h4>
+                <ul>
+                    <li><strong>Technical Depth:</strong> 2+ years industry experience + advanced ML expertise</li>
+                    <li><strong>Production Experience:</strong> Deployed models in AWS, built CI/CD pipelines</li>
+                    <li><strong>Business Acumen:</strong> BCG/KPMG experience translating tech to business value</li>
+                    <li><strong>Innovation Drive:</strong> Building TailorTrack demonstrates entrepreneurial thinking</li>
+                    <li><strong>Team Collaboration:</strong> Cross-functional experience across consulting and tech</li>
+                </ul>
             </div>
+        </section>
 
-            <div class="portfolio-card" onclick="openModal('module8')">
-                <span class="card-label">Module 8</span>
-                <h3>Tell Me About Yourself</h3>
-                <p>Structured interview response highlighting my journey from consulting to data science and my passion for building impactful AI systems.</p>
+        <!-- Professional Introduction (Elevator Pitch) -->
+        <section class="section">
+            <h2>Professional Introduction (Elevator Pitch):</h2>
+            <div class="content-box">
+                <p>Hello! I'm Ashish, a Master of Science in Data Science student at Northeastern University's Khoury College of Computer Sciences, graduating in September 2027. With over 2 years of industry experience as a Junior Data Scientist at Airox Technologies and previous internships at BCG and KPMG, I bring a strong foundation in machine learning, computer vision, and cloud-based AI systems.</p>
+
+                <p>My expertise spans the entire machine learning pipeline—from data engineering and model development to deployment and optimization. I'm particularly passionate about building multimodal AI systems and large-scale solutions that address real-world challenges. At Airox Technologies, I developed end-to-end ML pipelines and computer vision applications, while my consulting experience at BCG and KPMG sharpened my ability to translate complex technical solutions into actionable business insights.</p>
+
+                <h3>I specialize in:</h3>
+                <ul>
+                    <li>Machine Learning & Deep Learning (PyTorch, TensorFlow, Scikit-learn)</li>
+                    <li>Computer Vision & Multimodal AI Systems</li>
+                    <li>Cloud Technologies (AWS, Apache Spark, Databricks)</li>
+                    <li>MLOps & Production Deployment</li>
+                    <li>Data Engineering & Analytics</li>
+                </ul>
+
+                <p>Currently, I'm working on TailorTrack, an AI-powered career acceleration platform that combines resume optimization, intelligent job discovery, and interview preparation—reflecting my commitment to leveraging AI for practical, impactful applications.</p>
+
+                <p>I'm actively seeking opportunities in data science and machine learning engineering where I can apply my technical skills and passion for innovation to drive meaningful results.</p>
             </div>
+        </section>
 
-            <div class="portfolio-card" onclick="openModal('module9')">
-                <span class="card-label">Module 9</span>
-                <h3>Job Search Strategy</h3>
-                <p>Comprehensive strategic plan for securing data science and ML engineering positions with targeted approach and clear milestones.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Programming Languages</h3>
-                <div>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">R</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">JavaScript</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>ML/DL Frameworks</h3>
-                <div>
-                    <span class="skill-tag">PyTorch</span>
-                    <span class="skill-tag">TensorFlow</span>
-                    <span class="skill-tag">Keras</span>
-                    <span class="skill-tag">Scikit-learn</span>
-                    <span class="skill-tag">XGBoost</span>
-                    <span class="skill-tag">LightGBM</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Cloud & Big Data</h3>
-                <div>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">SageMaker</span>
-                    <span class="skill-tag">Apache Spark</span>
-                    <span class="skill-tag">Databricks</span>
-                    <span class="skill-tag">Hadoop</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>MLOps & Tools</h3>
-                <div>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">Kubernetes</span>
-                    <span class="skill-tag">MLflow</span>
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">CI/CD</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Specializations</h3>
-                <div>
-                    <span class="skill-tag">Computer Vision</span>
-                    <span class="skill-tag">NLP</span>
-                    <span class="skill-tag">Time Series</span>
-                    <span class="skill-tag">Recommendation Systems</span>
-                    <span class="skill-tag">A/B Testing</span>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Data Tools</h3>
-                <div>
-                    <span class="skill-tag">Pandas</span>
-                    <span class="skill-tag">NumPy</span>
-                    <span class="skill-tag">Tableau</span>
-                    <span class="skill-tag">Power BI</span>
-                    <span class="skill-tag">Matplotlib</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-content">
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">I'm always excited to discuss new ideas, collaborate on interesting projects, or simply chat about the latest developments in AI and machine learning.</p>
-            
-            <div class="contact-links">
-                <a href="mailto:jaiswal.ash@northeastern.edu" class="contact-link">
-                    📧 jaiswal.ash@northeastern.edu
-                </a>
-                <a href="https://linkedin.com/in/your-profile" class="contact-link" target="_blank">
-                    💼 LinkedIn
-                </a>
-                <a href="https://github.com/your-username" class="contact-link" target="_blank">
-                    🐙 GitHub
+        <!-- LinkedIn Profile -->
+        <section class="section">
+            <h2>LinkedIn Profile:</h2>
+            <div class="linkedin-embed">
+                <p style="font-size: 1.1rem; margin-bottom: 10px;">
+                    <strong>Connect with me on LinkedIn</strong>
+                </p>
+                <p style="color: #666; margin-bottom: 15px;">
+                    Email: jaiswal.ash@northeastern.edu<br>
+                    Location: Boston, MA
+                </p>
+                <a href="https://www.linkedin.com/in/ashish-jaiswal-401171208/" class="linkedin-button" target="_blank">
+                    View My LinkedIn Profile
                 </a>
             </div>
+        </section>
 
-            <p style="margin-top: 2rem; color: var(--text-light);">📍 Boston, MA</p>
-        </div>
-    </section>
+        <!-- Resume -->
+        <section class="section">
+            <h2>Resume:</h2>
+            <div class="resume-embed">
+                <div class="resume-preview">
+                    <div class="resume-icon">📄</div>
+                    <h3 style="color: #000080; margin-bottom: 15px;">Ashish - Resume</h3>
+                    <p style="color: #666; max-width: 500px; margin: 0 auto 20px;">
+                        MS Data Science @ Northeastern University<br>
+                        Machine Learning Engineer<br>
+                        2+ Years Experience at Airox Technologies, BCG, KPMG
+                    </p>
+                    <a href="Ashish_Resume.pdf" class="download-button" download>
+                        📥 Download Resume (PDF)
+                    </a>
+                    <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">
+                        [Note: Upload Ashish_Resume.pdf to the same folder as this HTML file]
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Job Search Strategy -->
+        <section class="section">
+            <h2>Job Search Strategy Plan:</h2>
+            <div class="strategy-content">
+                <p><strong>This comprehensive strategic plan outlines my approach to securing a data science or machine learning engineering position through targeted applications, strategic networking, and continuous skill development.</strong></p>
+
+                <h3>Career Objectives</h3>
+                <p><strong>Primary Target Roles:</strong></p>
+                <ul>
+                    <li>Data Scientist (Mid-Level)</li>
+                    <li>Machine Learning Engineer</li>
+                    <li>AI Engineer</li>
+                    <li>Applied Scientist</li>
+                </ul>
+
+                <p><strong>Industry Focus:</strong> Technology (AI/ML products, SaaS), Healthcare Tech (Medical AI), FinTech (Risk modeling, Fraud detection), Consulting (Technical consulting, AI strategy)</p>
+
+                <p><strong>Geographic Preferences:</strong> Primary: Boston, MA | Secondary: San Francisco Bay Area, Seattle, NYC | Open to: Remote opportunities</p>
+
+                <h3>Timeline & Milestones</h3>
+                
+                <p><strong>Month 1-2: Foundation Building</strong></p>
+                <ul>
+                    <li>Week 1-2: Optimize all application materials (resume, portfolio, LinkedIn)</li>
+                    <li>Week 3-4: Build portfolio website showcasing TailorTrack and key projects</li>
+                    <li>Week 5-6: Initiate informational interviews with 10 industry professionals</li>
+                    <li>Week 7-8: Apply to 15-20 target companies, attend 2 industry events</li>
+                </ul>
+
+                <p><strong>Month 3-4: Active Searching</strong></p>
+                <ul>
+                    <li>Apply to 20-25 positions per month</li>
+                    <li>Continue networking: 5 new connections per week</li>
+                    <li>Prepare for technical interviews: LeetCode, ML system design</li>
+                    <li>Attend virtual career fairs and company-specific events</li>
+                </ul>
+
+                <p><strong>Month 5-6: Interview Phase</strong></p>
+                <ul>
+                    <li>Focus on companies in advanced interview stages</li>
+                    <li>Conduct mock interviews with peers and mentors</li>
+                    <li>Negotiate offers strategically</li>
+                    <li>Evaluate opportunities based on growth potential, culture fit, compensation</li>
+                </ul>
+
+                <h3>Target Companies</h3>
+                <p><strong>Tier 1 (Dream Companies):</strong> Tech Giants (Google, Meta, Amazon, Microsoft, Apple), AI-First (OpenAI, Anthropic, Cohere, Scale AI), High-Growth (DataBricks, Snowflake, Weights & Biases)</p>
+
+                <p><strong>Tier 2 (Strong Fit):</strong> Established Tech (ServiceNow, Datadog, Salesforce), Healthcare AI (PathAI, Tempus, Insitro), FinTech (Stripe, Plaid, Robinhood), Consulting (McKinsey Digital, Deloitte AI, Accenture AI)</p>
+
+                <p><strong>Tier 3 (Growth Stage):</strong> Series B-D startups in AI/ML space, Boston-area tech companies with strong ML engineering teams</p>
+
+                <h3>Application Strategy</h3>
+                <p><strong>Quality Over Quantity Approach:</strong></p>
+                <ul>
+                    <li><strong>Deep Research (30 min per company):</strong> Understand product, tech stack, recent news; identify specific ML/AI teams; find relevant employees to connect with</li>
+                    <li><strong>Customized Applications:</strong> Tailor resume to highlight relevant experience; write personalized cover letters for top 40 companies; reference specific projects/initiatives</li>
+                    <li><strong>Multi-Channel Application:</strong> Company website (primary), Employee referrals (most effective), LinkedIn Easy Apply (selective), Specialized ML/AI recruiting agencies</li>
+                    <li><strong>Application Tracking:</strong> Maintain detailed spreadsheet with company, role, date applied, status, contacts; set reminders for follow-ups</li>
+                </ul>
+
+                <h3>Networking Strategy</h3>
+                
+                <p><strong>Northeastern University Network:</strong></p>
+                <ul>
+                    <li>Connect with 50 Khoury College alumni working in data science</li>
+                    <li>Attend Northeastern career fairs and industry panels</li>
+                    <li>Leverage professor connections at Institute for Experiential AI</li>
+                    <li>Join Northeastern Data Science club and AI research groups</li>
+                </ul>
+
+                <p><strong>Professional Networking:</strong></p>
+                <ul>
+                    <li><strong>LinkedIn Strategy:</strong> Optimize profile with portfolio projects; post weekly about ML projects and industry insights; send 10 personalized connection requests weekly to professionals in target roles</li>
+                    <li><strong>Industry Events:</strong> Attend 2 conferences/meetups per month (NeurIPS, CVPR, Boston ML Meetup, PyData Boston, AI Alignment Forum)</li>
+                    <li><strong>Informational Interviews:</strong> Schedule 2-3 per month with professionals at target companies; prepare thoughtful questions about team culture, tech stack, growth path</li>
+                    <li><strong>Referral Strategy:</strong> Target 40% of applications through referrals; leverage BCG and KPMG alumni networks</li>
+                </ul>
+
+                <h3>Skills Development & Interview Preparation</h3>
+                
+                <p><strong>Weekly Goals:</strong></p>
+                <ul>
+                    <li>Complete 5 LeetCode problems (focus on medium difficulty)</li>
+                    <li>Study 1 ML system design case study</li>
+                    <li>Read 2 technical papers on recent ML advances</li>
+                </ul>
+
+                <p><strong>Interview Preparation:</strong></p>
+                <ul>
+                    <li><strong>Coding Interviews:</strong> Master common algorithms (trees, graphs, dynamic programming); practice explaining thought process clearly</li>
+                    <li><strong>ML System Design:</strong> Study cases (recommendation systems, search ranking, fraud detection); understand trade-offs (accuracy vs. latency, complexity vs. maintainability)</li>
+                    <li><strong>Behavioral Interviews:</strong> Prepare 8-10 STAR method stories covering leadership, teamwork, handling failure, technical challenges, cross-functional collaboration</li>
+                </ul>
+
+                <h3>Success Metrics</h3>
+                
+                <p><strong>Weekly Targets:</strong> Applications: 5-7 | New connections: 10 | Coding problems: 5 | Learning hours: 10</p>
+                
+                <p><strong>Monthly Targets:</strong> Total applications: 20-25 | Informational interviews: 3-5 | Interview requests: Target 10% response rate</p>
+                
+                <p><strong>Overall Goal:</strong> Secure offer for data science/ML engineering role by June 2025 with competitive compensation ($100K-$130K base for internship/co-op, $120K-$160K for full-time), strong mentorship and learning opportunities, meaningful work in AI/ML applications, and clear career growth path.</p>
+
+                <h3>Contingency Plans</h3>
+                <p><strong>If Search Extends Beyond 6 Months:</strong></p>
+                <ul>
+                    <li>Expand geographic search to include all major tech hubs</li>
+                    <li>Consider contract/consulting roles to build experience</li>
+                    <li>Pursue additional certifications (AWS ML Specialty, TensorFlow Developer)</li>
+                    <li>Contribute to open-source ML projects for visibility</li>
+                </ul>
+
+                <p><strong>Alternative Pathways:</strong> Research Assistant positions at Northeastern (Institute for Experiential AI), Part-time ML roles while continuing studies, Freelance data science consulting</p>
+
+                <a href="Job_Search_Strategy_Plan.pdf" class="download-button" style="margin-top: 20px;" download>
+                    📥 Download Full Strategy Plan (PDF)
+                </a>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #666; text-align: center;">
+                    [Note: Upload Job_Search_Strategy_Plan.pdf to the same folder as this HTML file]
+                </p>
+            </div>
+        </section>
+
+    </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Ashish | MS Data Science @ Northeastern University</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Building AI systems that solve real-world problems</p>
+        <p style="margin-top: 10px; opacity: 0.8;">Career Preparation E-Portfolio | jaiswal.ash@northeastern.edu</p>
+        <p style="margin-top: 5px; opacity: 0.8;">LinkedIn: <a href="https://www.linkedin.com/in/ashish-jaiswal-401171208/" style="color: #4da6ff;" target="_blank">ashish-jaiswal-401171208</a></p>
     </footer>
 
-    <!-- Modals -->
-    <div id="module4" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('module4')">&times;</span>
-            <h2>Professional Introduction</h2>
-            
-            <p>Hello! I'm Ashish, a Master of Science in Data Science student at Northeastern University's Khoury College of Computer Sciences, graduating in September 2027. With over 2 years of industry experience as a Junior Data Scientist at Airox Technologies and previous internships at BCG and KPMG, I bring a strong foundation in machine learning, computer vision, and cloud-based AI systems.</p>
-
-            <p>My expertise spans the entire machine learning pipeline—from data engineering and model development to deployment and optimization. I'm particularly passionate about building multimodal AI systems and large-scale solutions that address real-world challenges. At Airox Technologies, I developed end-to-end ML pipelines and computer vision applications, while my consulting experience at BCG and KPMG sharpened my ability to translate complex technical solutions into actionable business insights.</p>
-
-            <h3>I specialize in:</h3>
-            <ul>
-                <li>Machine Learning & Deep Learning (PyTorch, TensorFlow, Scikit-learn)</li>
-                <li>Computer Vision & Multimodal AI Systems</li>
-                <li>Cloud Technologies (AWS, Apache Spark, Databricks)</li>
-                <li>MLOps & Production Deployment</li>
-                <li>Data Engineering & Analytics</li>
-            </ul>
-
-            <p>Currently, I'm working on TailorTrack, an AI-powered career acceleration platform that combines resume optimization, intelligent job discovery, and interview preparation—reflecting my commitment to leveraging AI for practical, impactful applications.</p>
-
-            <p>I'm actively seeking opportunities in data science and machine learning engineering where I can apply my technical skills and passion for innovation to drive meaningful results. Let's connect and explore how I can contribute to your team's success.</p>
-        </div>
-    </div>
-
-    <div id="module7" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('module7')">&times;</span>
-            <h2>Professional Resume</h2>
-            
-            <p style="text-align: center; margin-bottom: 2rem;">
-                <strong>Master of Science in Data Science | Machine Learning Engineer</strong><br>
-                Boston, MA | <a href="mailto:jaiswal.ash@northeastern.edu">jaiswal.ash@northeastern.edu</a>
-            </p>
-
-            <h3>EDUCATION</h3>
-            <p><strong>Northeastern University, Khoury College of Computer Sciences</strong> | Boston, MA<br>
-            Master of Science in Data Science | Expected Graduation: September 2027<br>
-            <em>Relevant Coursework:</em> Machine Learning, Deep Learning, Computer Vision, Big Data Systems, NLP</p>
-
-            <h3>PROFESSIONAL EXPERIENCE</h3>
-            
-            <p><strong>Junior Data Scientist | Airox Technologies</strong></p>
-            <ul>
-                <li>Designed and deployed end-to-end ML pipelines processing 100K+ data points daily, improving prediction accuracy by 25%</li>
-                <li>Developed computer vision models using PyTorch for real-time object detection, achieving 92% accuracy</li>
-                <li>Built multimodal AI systems integrating vision and language models for automated pathology report generation</li>
-                <li>Optimized ML pipeline performance using Apache Spark and Databricks, reducing processing time by 40%</li>
-                <li>Collaborated with cross-functional teams to deploy models on AWS with CI/CD pipelines</li>
-            </ul>
-
-            <p><strong>Data Science Intern | Boston Consulting Group (BCG)</strong></p>
-            <ul>
-                <li>Conducted advanced analytics and predictive modeling for Fortune 500 clients across retail and healthcare</li>
-                <li>Developed recommendation systems using collaborative filtering, increasing client engagement by 30%</li>
-                <li>Created data visualizations and executive dashboards using Tableau and Power BI</li>
-                <li>Performed A/B testing and statistical analysis to validate business hypotheses</li>
-            </ul>
-
-            <p><strong>Data Analytics Intern | KPMG</strong></p>
-            <ul>
-                <li>Analyzed large-scale financial datasets to identify trends and anomalies</li>
-                <li>Built automated data quality validation frameworks using Python, reducing manual review time by 50%</li>
-                <li>Developed SQL queries and ETL pipelines for data warehouse optimization</li>
-                <li>Presented insights to senior stakeholders, translating technical findings into actionable recommendations</li>
-            </ul>
-
-            <h3>PROJECTS</h3>
-            
-            <p><strong>TailorTrack - AI Career Acceleration Platform</strong></p>
-            <ul>
-                <li>Developing full-stack application combining resume optimization, job discovery, and interview preparation using LLMs</li>
-                <li>Implementing RAG architecture for personalized career guidance with vector database integration</li>
-                <li>Tech Stack: Python, LangChain, FastAPI, React, PostgreSQL, OpenAI API</li>
-            </ul>
-
-            <p><strong>Car Recommender System</strong></p>
-            <ul>
-                <li>Built comprehensive recommendation engine incorporating collaborative filtering, content-based, and hybrid approaches</li>
-                <li>Engineered feature pipelines processing 50K+ vehicle specifications, achieving 85% user satisfaction</li>
-                <li>Tech Stack: Python, Scikit-learn, Pandas, NumPy, Flask</li>
-            </ul>
-
-            <a href="#" class="download-btn">📥 Download Resume (PDF)</a>
-        </div>
-    </div>
-
-    <div id="module8" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('module8')">&times;</span>
-            <h2>Tell Me About Yourself</h2>
-            
-            <p>I'm a Data Science graduate student at Northeastern University with over 2 years of professional experience building production-grade machine learning systems. My journey in data science began during my undergraduate studies, but it truly took shape when I joined Airox Technologies as a Junior Data Scientist, where I developed end-to-end ML pipelines and computer vision applications that processed over 100,000 data points daily.</p>
-
-            <p>What excites me most about data science is the intersection of technical innovation and real-world impact. At Airox, I didn't just build models—I deployed them in production environments using AWS and implemented monitoring systems to ensure they continued delivering value. One of my proudest achievements was developing a multimodal AI system that integrated vision and language models, which significantly improved our automated reporting capabilities.</p>
-
-            <p>Before Airox, I gained valuable experience through internships at BCG and KPMG, where I learned to translate complex technical solutions into business strategies. At BCG, I built recommendation systems that increased client engagement by 30%, while at KPMG, I developed automated data quality frameworks that reduced manual review time by half.</p>
-
-            <p>Currently, I'm channeling my passion for practical AI applications into TailorTrack, a platform I'm developing that uses large language models to help job seekers optimize their career search. This project combines everything I love—natural language processing, full-stack development, and solving real problems that people face.</p>
-
-            <p>I'm particularly drawn to roles where I can work on challenging machine learning problems at scale, collaborate with cross-functional teams, and see my work make a tangible difference.</p>
-
-            <h3>Key Talking Points:</h3>
-            <ul>
-                <li><strong>Technical Depth:</strong> 2+ years industry experience + advanced ML expertise</li>
-                <li><strong>Production Experience:</strong> Deployed models in AWS, built CI/CD pipelines</li>
-                <li><strong>Business Acumen:</strong> BCG/KPMG experience translating tech to business value</li>
-                <li><strong>Innovation Drive:</strong> Building TailorTrack demonstrates entrepreneurial thinking</li>
-                <li><strong>Team Collaboration:</strong> Cross-functional experience across consulting and tech</li>
-            </ul>
-
-            <h3>Delivery Tips:</h3>
-            <ul>
-                <li>Keep response to 90-120 seconds</li>
-                <li>Use PRESENT-PAST-FUTURE structure</li>
-                <li>Be conversational and show enthusiasm</li>
-                <li>Customize ending to specific company/role</li>
-                <li>Highlight quantifiable achievements</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="module9" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('module9')">&times;</span>
-            <h2>Job Search Strategy Plan</h2>
-            
-            <h3>Executive Summary</h3>
-            <p>This job search strategy outlines a comprehensive, data-driven approach to securing a data science or machine learning engineering position that leverages my technical expertise, industry experience, and network. The plan focuses on three key pillars: targeted applications, strategic networking, and continuous skill development.</p>
-
-            <h3>Career Objectives</h3>
-            <p><strong>Primary Target Roles:</strong></p>
-            <ul>
-                <li>Data Scientist (Mid-Level)</li>
-                <li>Machine Learning Engineer</li>
-                <li>AI Engineer</li>
-                <li>Applied Scientist</li>
-            </ul>
-
-            <p><strong>Industry Focus:</strong> Technology (AI/ML products, SaaS), Healthcare Tech (Medical AI, Bioinformatics), FinTech (Risk modeling, Fraud detection), Consulting (Technical consulting, AI strategy)</p>
-
-            <p><strong>Geographic Preferences:</strong> Primary: Boston, MA | Secondary: San Francisco Bay Area, Seattle, NYC | Open to: Remote opportunities</p>
-
-            <h3>Timeline & Milestones</h3>
-            <p><strong>Month 1-2: Foundation Building</strong></p>
-            <ul>
-                <li>Optimize all application materials (resume, portfolio, LinkedIn)</li>
-                <li>Build portfolio website showcasing TailorTrack and key projects</li>
-                <li>Initiate informational interviews with 10 industry professionals</li>
-                <li>Apply to 15-20 target companies, attend 2 industry events</li>
-            </ul>
-
-            <p><strong>Month 3-4: Active Searching</strong></p>
-            <ul>
-                <li>Apply to 20-25 positions per month</li>
-                <li>Continue networking: 5 new connections per week</li>
-                <li>Prepare for technical interviews: LeetCode, ML system design</li>
-                <li>Attend virtual career fairs and company-specific events</li>
-            </ul>
-
-            <p><strong>Month 5-6: Interview Phase</strong></p>
-            <ul>
-                <li>Focus on companies in advanced interview stages</li>
-                <li>Conduct mock interviews with peers and mentors</li>
-                <li>Negotiate offers strategically</li>
-                <li>Evaluate opportunities based on growth potential, culture fit, compensation</li>
-            </ul>
-
-            <h3>Target Companies</h3>
-            <p><strong>Tier 1 (Dream Companies):</strong> Tech Giants (Google, Meta, Amazon, Microsoft, Apple) | AI-First (OpenAI, Anthropic, Cohere, Scale AI) | High-Growth (DataBricks, Snowflake, Weights & Biases)</p>
-
-            <p><strong>Tier 2 (Strong Fit):</strong> Established Tech (ServiceNow, Datadog, Salesforce, Adobe) | Healthcare AI (PathAI, Tempus, Insitro) | FinTech (Stripe, Plaid, Robinhood) | Consulting (McKinsey Digital, Deloitte AI, Accenture AI)</p>
-
-            <h3>Application Strategy</h3>
-            <p><strong>Quality Over Quantity Approach:</strong></p>
-            <ul>
-                <li>Deep Research (30 minutes per company): Understand product, tech stack, recent news</li>
-                <li>Customized Applications: Tailor resume using TailorTrack, write personalized cover letters</li>
-                <li>Multi-Channel Application: Company website, Employee referrals, LinkedIn, Recruiting agencies</li>
-                <li>Application Tracking: Detailed spreadsheet with company, role, date, status, contacts</li>
-            </ul>
-
-            <h3>Networking Strategy</h3>
-            <p><strong>Northeastern University Network:</strong></p>
-            <ul>
-                <li>Connect with 50 Khoury College alumni in data science</li>
-                <li>Attend career fairs and industry panels</li>
-                <li>Leverage professor connections at Institute for Experiential AI</li>
-            </ul>
-
-            <p><strong>Professional Networking:</strong></p>
-            <ul>
-                <li>LinkedIn: Optimize profile, post weekly, send 10 personalized connection requests weekly</li>
-                <li>Industry Events: Attend 2 conferences/meetups per month (NeurIPS, CVPR, local ML meetups)</li>
-                <li>Informational Interviews: Schedule 2-3 per month with professionals at target companies</li>
-                <li>Referral Strategy: Target 40% of applications through referrals, leverage BCG and KPMG alumni</li>
-            </ul>
-
-            <h3>Skills Development & Interview Preparation</h3>
-            <p><strong>Weekly Goals:</strong></p>
-            <ul>
-                <li>Complete 5 LeetCode problems (focus on medium difficulty)</li>
-                <li>Study 1 ML system design case study</li>
-                <li>Read 2 technical papers on recent ML advances</li>
-            </ul>
-
-            <p><strong>Interview Preparation:</strong></p>
-            <ul>
-                <li>Coding Interviews: Master common algorithms, practice explaining thought process</li>
-                <li>ML System Design: Study recommendation systems, search ranking, fraud detection cases</li>
-                <li>Behavioral Interviews: Prepare 8-10 STAR method stories</li>
-            </ul>
-
-            <h3>Success Metrics</h3>
-            <p><strong>Weekly:</strong> Applications: 5-7 | New connections: 10 | Coding problems: 5 | Learning hours: 10</p>
-            <p><strong>Monthly:</strong> Total applications: 20-25 | Informational interviews: 3-5 | Interview requests: 10% response rate target</p>
-            <p><strong>Overall Goal:</strong> Secure offer by June 2025 with competitive compensation ($100K-$130K base for internship, $120K-$160K for full-time), strong mentorship, meaningful AI/ML work, clear growth path</p>
-
-            <a href="#" class="download-btn">📥 Download Strategy Plan (PDF)</a>
-        </div>
-    </div>
-
     <script>
-        // Modal Functions
-        function openModal(id) {
-            document.getElementById(id).style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Smooth scroll offset for fixed nav
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
-        });
-
-        // Add scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.portfolio-card, .skill-category').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease-out';
-            observer.observe(el);
         });
     </script>
 </body>
