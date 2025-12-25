@@ -17,6 +17,55 @@
             color: #333;
             background: linear-gradient(135deg, #f5f5f5 0%, #e8eef3 100%);
             scroll-behavior: smooth;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: 0;
+            pointer-events: none;
+            background-image: 
+                /* Neural network nodes */
+                radial-gradient(circle at 20% 30%, #000080 2px, transparent 2px),
+                radial-gradient(circle at 80% 20%, #e63946 2px, transparent 2px),
+                radial-gradient(circle at 40% 70%, #000080 2px, transparent 2px),
+                radial-gradient(circle at 90% 60%, #e63946 2px, transparent 2px),
+                radial-gradient(circle at 10% 80%, #000080 2px, transparent 2px),
+                radial-gradient(circle at 60% 40%, #e63946 2px, transparent 2px),
+                /* Connection lines */
+                linear-gradient(45deg, transparent 48%, rgba(0,0,128,0.1) 49%, rgba(0,0,128,0.1) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(230,57,70,0.1) 49%, rgba(230,57,70,0.1) 51%, transparent 52%),
+                /* Data grid */
+                linear-gradient(90deg, rgba(0,0,128,0.05) 1px, transparent 1px),
+                linear-gradient(rgba(0,0,128,0.05) 1px, transparent 1px);
+            background-size: 
+                400px 400px,
+                400px 400px,
+                400px 400px,
+                400px 400px,
+                400px 400px,
+                400px 400px,
+                200px 200px,
+                200px 200px,
+                50px 50px,
+                50px 50px;
+            background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+            animation: dataFlow 60s linear infinite;
+        }
+
+        @keyframes dataFlow {
+            0% {
+                background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+            }
+            100% {
+                background-position: 400px 400px, -400px 400px, 400px -400px, -400px -400px, 400px 400px, -400px 400px, 200px 200px, -200px -200px, 50px 50px, -50px -50px;
+            }
         }
 
         /* Header with Banner */
@@ -31,6 +80,36 @@
             align-items: center;
             justify-content: center;
             animation: headerGlow 3s ease-in-out infinite alternate;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                /* ML nodes pattern */
+                radial-gradient(circle at 15% 25%, rgba(255,255,255,0.3) 3px, transparent 3px),
+                radial-gradient(circle at 45% 15%, rgba(255,255,255,0.3) 3px, transparent 3px),
+                radial-gradient(circle at 75% 35%, rgba(255,255,255,0.3) 3px, transparent 3px),
+                radial-gradient(circle at 25% 65%, rgba(255,255,255,0.3) 3px, transparent 3px),
+                radial-gradient(circle at 55% 75%, rgba(255,255,255,0.3) 3px, transparent 3px),
+                radial-gradient(circle at 85% 65%, rgba(255,255,255,0.3) 3px, transparent 3px),
+                /* Connection lines */
+                linear-gradient(30deg, transparent 49%, rgba(255,255,255,0.1) 49.5%, rgba(255,255,255,0.1) 50.5%, transparent 51%),
+                linear-gradient(-30deg, transparent 49%, rgba(255,255,255,0.1) 49.5%, rgba(255,255,255,0.1) 50.5%, transparent 51%);
+            background-size: 100% 100%;
+            animation: networkPulse 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes networkPulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.2; }
         }
 
         @keyframes headerGlow {
@@ -116,6 +195,49 @@
             z-index: 10;
             animation: fadeInUp 0.8s ease-out;
             transition: box-shadow 0.3s ease;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            opacity: 0.02;
+            background-image: 
+                /* Chart bars */
+                linear-gradient(to top, #000080 40%, transparent 40%),
+                linear-gradient(to top, #e63946 60%, transparent 60%),
+                linear-gradient(to top, #000080 80%, transparent 80%),
+                linear-gradient(to top, #e63946 45%, transparent 45%),
+                linear-gradient(to top, #000080 70%, transparent 70%);
+            background-size: 30px 100%, 30px 100%, 30px 100%, 30px 100%, 30px 100%;
+            background-position: 10px 0, 40px 0, 70px 0, 100px 0, 130px 0;
+            background-repeat: no-repeat;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            opacity: 0.02;
+            background-image: 
+                /* Pie chart simulation */
+                conic-gradient(#000080 0deg 120deg, #e63946 120deg 240deg, #000080 240deg 360deg);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container > * {
+            position: relative;
+            z-index: 1;
         }
 
         .container:hover {
@@ -409,6 +531,23 @@
             border-radius: 8px;
             overflow: hidden;
             transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .resume-embed::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px;
+            height: 100px;
+            opacity: 0.03;
+            background-image: 
+                /* Document lines pattern */
+                repeating-linear-gradient(0deg, #000080, #000080 2px, transparent 2px, transparent 8px),
+                repeating-linear-gradient(90deg, #e63946, #e63946 2px, transparent 2px, transparent 15px);
+            z-index: 0;
+            pointer-events: none;
         }
 
         .resume-embed:hover {
@@ -494,6 +633,32 @@
             margin: 20px 0;
             transition: all 0.3s ease;
             border: 1px solid #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .strategy-content::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 120px;
+            height: 120px;
+            opacity: 0.02;
+            background-image: 
+                /* Analytics graph pattern */
+                linear-gradient(to bottom right, transparent 48%, #000080 49%, #000080 51%, transparent 52%),
+                linear-gradient(to top right, transparent 48%, #e63946 49%, #e63946 51%, transparent 52%),
+                radial-gradient(circle, #000080 20%, transparent 20%);
+            background-size: 40px 40px, 40px 40px, 15px 15px;
+            background-position: 0 0, 20px 20px, 0 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .strategy-content > * {
+            position: relative;
+            z-index: 1;
         }
 
         .strategy-content:hover {
